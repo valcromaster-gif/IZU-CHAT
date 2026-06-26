@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izu Chat ⚡</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- JOIN SCREEN -->
+  <div id="join-screen">
+    <div class="join-card">
+      <div class="brand">
+        <span class="bolt">⚡</span>
+        <h1 class="brand-name">Izu Chat</h1>
+      </div>
+      <p class="brand-tagline">One global room. No sign-up. Just talk.</p>
+      <div class="join-form">
+        <input type="text" id="name-input" placeholder="What should we call you?"
+          maxlength="20" autocomplete="off" spellcheck="false" />
+        <button id="join-btn">Enter Room</button>
+      </div>
+      <p class="join-note">Your name is visible to everyone in the room.</p>
+    </div>
+  </div>
+
+  <!-- CHAT SCREEN -->
+  <div id="chat-screen" class="hidden">
+
+    <header class="top-bar">
+      <div class="bar-left">
+        <span class="bolt-sm">⚡</span>
+        <span class="brand-sm">Izu Chat</span>
+        <div class="live-pill">
+          <span class="live-dot"></span>
+          <span id="online-count">connecting…</span>
+        </div>
+      </div>
+      <div class="bar-right">
+        <span id="you-label"></span>
+        <button id="sound-btn"  class="icon-btn" title="Enable message sound">🔇</button>
+        <button id="notif-btn"  class="icon-btn" title="Enable notifications">🔔</button>
+      </div>
+    </header>
+
+    <!-- Message feed -->
+    <div id="messages" class="messages" role="log" aria-live="polite">
+      <div class="room-intro" id="room-intro">
+        <span class="intro-bolt">⚡</span>
+        <p>Welcome to the global room.<br/>Everyone's here — say something.</p>
+      </div>
+    </div>
+
+    <!-- Scroll-to-bottom button -->
+    <button id="scroll-btn" class="scroll-btn hidden" title="Jump to latest">↓</button>
+
+    <!-- Typing indicator -->
+    <div id="typing-bar" class="typing-bar hidden">
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+      <span id="typing-label"></span>
+    </div>
+
+    <!-- In-app toast -->
+    <div id="in-app-toast" class="in-app-toast hidden"></div>
+
+    <!-- Input area -->
+    <div class="input-area">
+
+      <!-- NEW: Reply context bar (shown when replying to a message) -->
+      <div id="reply-bar" class="context-bar hidden">
+        <span class="ctx-icon">↩️</span>
+        <div class="ctx-info">
+          <span class="ctx-label" id="reply-label">Replying to</span>
+          <span class="ctx-preview" id="reply-preview"></span>
+        </div>
+        <button id="reply-cancel" class="ctx-cancel" title="Cancel reply">✕</button>
+      </div>
+
+      <!-- NEW: Edit context bar (shown when editing a message) -->
+      <div id="edit-bar" class="context-bar hidden">
+        <span class="ctx-icon">✏️</span>
+        <div class="ctx-info">
+          <span class="ctx-label">Editing message</span>
+          <span class="ctx-preview" id="edit-preview"></span>
+        </div>
+        <button id="edit-cancel" class="ctx-cancel" title="Cancel edit">✕</button>
+      </div>
+
+      <!-- Emoji picker (absolute, overlays above) -->
+      <div id="emoji-panel" class="emoji-panel hidden"></div>
+
+      <div class="input-row">
+        <button class="icon-btn" id="emoji-btn"  title="Emoji picker">😊</button>
+        <button class="icon-btn" id="attach-btn" title="Attach file (max 200 KB)">📎</button>
+        <input type="text" id="msg-input"
+          placeholder="Send a message…"
+          maxlength="300" autocomplete="off" aria-label="Message" />
+        <span id="char-counter" class="char-counter"></span>
+        <button id="send-btn" class="send-btn" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="rate-bar" class="rate-bar hidden">
+      ⏳ Slow down — wait a moment before sending again.
+    </div>
+
+  </div><!-- /#chat-screen -->
+
+  <!-- Image lightbox -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+    <div class="lb-bg"   id="lb-close-bg"></div>
+    <button class="lb-close" id="lb-close-btn" aria-label="Close">✕</button>
+    <img id="lb-img" class="lb-img" alt="Full size view" />
+  </div>
+
+  <input type="file" id="file-input" style="display:none" />
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
