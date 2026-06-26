@@ -15,12 +15,12 @@
 
 // ── 🔥 YOUR FIREBASE CONFIG ────────────────────────
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey:            "AIzaSyB3zf9dvSND50-2MUu6ZxXk-3SA45VW8ZM",
+  authDomain:        "izu-chat.firebaseapp.com",
+  projectId:         "izu-chat",
+  storageBucket:     "izu-chat.firebasestorage.app",
+  messagingSenderId: "1092609537065",
+  appId:             "1:1092609537065:web:c5579fb6d0e4f404f05838"
 };
 // ──────────────────────────────────────────────────
 
